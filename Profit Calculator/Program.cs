@@ -10,12 +10,66 @@ namespace Profit_Calculator
     {
         static void Main(string[] args)
         {
-        
+        MainMenu:
+            Console.Clear();
+
+            Console.WriteLine("**************");
+            Console.WriteLine("Welcome To Main Menu!");
+            Console.WriteLine("1-Calculate Percantage by giving Start and End Values");
+            Console.WriteLine("2-Calculate Profit with Starting and Percantage Values");
+            Console.WriteLine("3-Amount to invest to get the Profit amount with your Percantage Value");
+            Console.Write("What do you want to do?(Write the number):");
+            int answer = int.Parse(Console.ReadLine());
+
+
+            switch (answer)
+            {
+                case 1://Calculates percantage between start-end values
+                    Calculator.CalculatePercantage();
+                    break;
+                case 2://Calculates end value and profit with start value and percantage
+                    Calculator.PercantageToEndValue();
+                    break;
+                case 3://Calculates investing amount with your profit goal and return percantage
+                    Calculator.ProfitAmountToInvest();
+                    break;
+
+                default:
+                    Console.WriteLine("Wrong input returning back to main menu!");
+                    Console.ReadLine();
+                    goto MainMenu;//returns back to main menu
+
+            }
+
+            //2 Lines of gap
+            Console.WriteLine();
+            Console.WriteLine();
+
+            //Returning to main menu prompt
+        MenuPrompt:
+            Console.Write("Do you want to return to the main menu?(Y/N):");
+            if(Console.ReadLine().ToUpper() == "Y")//if yes
+            {
+                Console.WriteLine("Returning back to main menu!");
+                goto MainMenu;
+            }
+            else if(Console.ReadLine().ToUpper() == "N")//if no
+            {
+                Console.WriteLine("Have a great day!");
+                Console.ReadLine();
+            }
+            else//wrong input
+            {
+                Console.WriteLine("Wrong input try again!");
+                goto MenuPrompt;
+            }
+
+
         }
 
     }
 
-    public static class Calculator
+    public static class Calculator//The class that have the methods
     {
         // NUMBER 1
         public static void CalculatePercantage()//Percantage calculation by the diffrence between starting and end value
