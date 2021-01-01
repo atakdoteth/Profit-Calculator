@@ -14,7 +14,7 @@ namespace Profit_Calculator
             Console.Clear();
 
             Console.WriteLine("**************");
-            Console.WriteLine("Welcome To Main Menu!");
+            Console.WriteLine("Main Menu!");
             Console.WriteLine("1-Calculate Percantage by giving Start and End Values");
             Console.WriteLine("2-Calculate Profit with Starting and Percantage Values");
             Console.WriteLine("3-Amount to invest to get the Profit amount with your Percantage Value");
