@@ -19,6 +19,7 @@ namespace Profit_Calculator
             Console.WriteLine("1-Calculate Percantage by giving Start and End Values");
             Console.WriteLine("2-Calculate Profit with Starting and Percantage Values");
             Console.WriteLine("3-Amount to invest to get the Profit amount with your Percantage Value");
+            Console.WriteLine("4-Calculates the Profit with Starting and End Values");
             Console.WriteLine();
             Console.Write("What do you want to do?(Write the number):");
             int answer = int.Parse(Console.ReadLine());
@@ -35,6 +36,10 @@ namespace Profit_Calculator
                 case 3://Calculates investing amount with your profit goal and return percantage
                     Calculator.ProfitAmountToInvest();
                     break;
+                case 4://Calculates profit from start-end value and asset value
+                    Calculator.CalculateProfit();
+                    break;
+
 
                 default:
                     Console.WriteLine("Wrong input returning back to main menu!");
@@ -119,7 +124,7 @@ namespace Profit_Calculator
 
 
         //NUMBER 3
-        public static void ProfitAmountToInvest()//Calculating starting value to get the profit amount you want with your percantage
+        public static void ProfitAmountToInvest()//Calculating starting value to get the profit amount you want with your return percantage
         {
             float profit = float.Parse(Console.ReadLine());
             float percantage = float.Parse(Console.ReadLine());
@@ -127,6 +132,25 @@ namespace Profit_Calculator
             float invest = profit / percantage * 100;
 
             Console.WriteLine("You need to invest {0} to get {1} with {2} percantage return.",invest,profit,percantage);
+        }
+
+        //NUMBER 4
+        public static void CalculateProfit()//Calculating Profit-End value by start-end values and asset value
+        {
+            Console.Write("Starting Value:");
+            float start = float.Parse(Console.ReadLine());
+
+            Console.Write("End Value:");
+            float end = float.Parse(Console.ReadLine());
+
+            Console.Write("Asset Value(Use  , instead of . ):");
+            float assetValue = float.Parse(Console.ReadLine());
+
+            float percantage = ((end / start) -1);
+            float profit = start * assetValue * percantage;
+
+            Console.WriteLine("Your profit is -> {0}", profit);
+
         }
 
         
