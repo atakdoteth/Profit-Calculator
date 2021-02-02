@@ -10,6 +10,8 @@ namespace Profit_Calculator
     {
         static void Main(string[] args)
         {
+            Calculator calculator = new Calculator();//creates calculator
+
         MainMenu:
             Console.Clear();
 
@@ -28,16 +30,19 @@ namespace Profit_Calculator
             switch (answer)
             {
                 case 1://Calculates percantage between start-end values
-                    Calculator.CalculatePercantage();
+                    calculator.CalculatePercantage();
                     break;
                 case 2://Calculates end value and profit with start value and percantage
-                    Calculator.PercantageToEndValue();
+                    calculator.PercantageToEndValue();
                     break;
                 case 3://Calculates investing amount with your profit goal and return percantage
-                    Calculator.ProfitAmountToInvest();
+                    calculator.ProfitAmountToInvest();
                     break;
                 case 4://Calculates profit from start-end value and asset value
-                    Calculator.CalculateProfit();
+                    calculator.CalculateProfit();
+                    break;
+                case 5://Calculates asset average asset value for asset amount
+
                     break;
 
 
@@ -77,10 +82,10 @@ namespace Profit_Calculator
 
     }
 
-    public static class Calculator//The class that have the methods
+    public class Calculator//The class that have the methods
     {
         // NUMBER 1
-        public static void CalculatePercantage()//Percantage calculation by the diffrence between starting and end value
+        public void CalculatePercantage()//Percantage calculation by the diffrence between starting and end value
         {
             Console.Write("Starting Value:");
             float start = float.Parse(Console.ReadLine());
@@ -98,7 +103,7 @@ namespace Profit_Calculator
 
 
         //NUMBER 2
-        public static void PercantageToEndValue()//End value and profit calculation by starting value and percantage
+        public void PercantageToEndValue()//End value and profit calculation by starting value and percantage
         {
             Console.Write("Starting Value:");
             float start = float.Parse(Console.ReadLine());
@@ -124,7 +129,7 @@ namespace Profit_Calculator
 
 
         //NUMBER 3
-        public static void ProfitAmountToInvest()//Calculating starting value to get the profit amount you want with your return percantage
+        public void ProfitAmountToInvest()//Calculating starting value to get the profit amount you want with your return percantage
         {
             float profit = float.Parse(Console.ReadLine());
             float percantage = float.Parse(Console.ReadLine());
@@ -135,7 +140,7 @@ namespace Profit_Calculator
         }
 
         //NUMBER 4
-        public static void CalculateProfit()//Calculating Profit-End value by start-end values and asset value
+        public void CalculateProfit()//Calculating Profit-End value by start-end values and asset value
         {
             Console.Write("Starting Value:");
             float start = float.Parse(Console.ReadLine());
@@ -151,6 +156,11 @@ namespace Profit_Calculator
 
             Console.WriteLine("Your profit is -> {0}", profit);
 
+        }
+
+        //NUMBER 5
+        public void AssetAverage()//Calculates average of the asset value with asset amounts and buy prices
+        {
         }
 
         
