@@ -185,7 +185,6 @@ namespace Profit_Calculator
             
             for(int i = 0; i<amount.Count; i++)//Finding total asset size
             {
-                Console.WriteLine(amount[i]);
                 sum += amount[i];
             }
 
